@@ -151,7 +151,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setState((s) => ({ ...s, plans: [{ ...plan, id: uid(), createdAt: now() }, ...s.plans] })),
       toggleFavorite: (kind, id) =>
         setState((s) => {
-          const flip = <T extends { id: string; favorite?: boolean }>(items: T[]) =>
+          const flip = <T extends { id: string; favorite?: boolean | undefined }>(items: T[]) =>
             items.map((i) => (i.id === id ? { ...i, favorite: !i.favorite } : i));
           if (kind === "email") return { ...s, emails: flip(s.emails) };
           if (kind === "meeting") return { ...s, meetings: flip(s.meetings) };
