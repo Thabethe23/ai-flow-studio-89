@@ -13,8 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as EmailRouteImport } from './routes/email'
+import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as HistoryRouteImport } from './routes/history'
 import { Route as MeetingsRouteImport } from './routes/meetings'
 import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as TasksRouteImport } from './routes/tasks'
 
 const IndexRoute = IndexRouteImport.update({
@@ -37,6 +41,21 @@ const EmailRoute = EmailRouteImport.update({
   path: '/email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MeetingsRoute = MeetingsRouteImport.update({
   id: '/meetings',
   path: '/meetings',
@@ -45,6 +64,11 @@ const MeetingsRoute = MeetingsRouteImport.update({
 const PlannerRoute = PlannerRouteImport.update({
   id: '/planner',
   path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksRoute = TasksRouteImport.update({
@@ -58,8 +82,12 @@ export interface FileRoutesByFullPath {
   '/assistant': typeof AssistantRoute
   '/calendar': typeof CalendarRoute
   '/email': typeof EmailRoute
+  '/favorites': typeof FavoritesRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
   '/planner': typeof PlannerRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
 }
 export interface FileRoutesByTo {
@@ -67,8 +95,12 @@ export interface FileRoutesByTo {
   '/assistant': typeof AssistantRoute
   '/calendar': typeof CalendarRoute
   '/email': typeof EmailRoute
+  '/favorites': typeof FavoritesRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
   '/planner': typeof PlannerRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
 }
 export interface FileRoutesById {
@@ -77,8 +109,12 @@ export interface FileRoutesById {
   '/assistant': typeof AssistantRoute
   '/calendar': typeof CalendarRoute
   '/email': typeof EmailRoute
+  '/favorites': typeof FavoritesRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
   '/planner': typeof PlannerRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
 }
 export interface FileRouteTypes {
@@ -88,8 +124,12 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/calendar'
     | '/email'
+    | '/favorites'
+    | '/help'
+    | '/history'
     | '/meetings'
     | '/planner'
+    | '/settings'
     | '/tasks'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,8 +137,12 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/calendar'
     | '/email'
+    | '/favorites'
+    | '/help'
+    | '/history'
     | '/meetings'
     | '/planner'
+    | '/settings'
     | '/tasks'
   id:
     | '__root__'
@@ -106,8 +150,12 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/calendar'
     | '/email'
+    | '/favorites'
+    | '/help'
+    | '/history'
     | '/meetings'
     | '/planner'
+    | '/settings'
     | '/tasks'
   fileRoutesById: FileRoutesById
 }
@@ -116,8 +164,12 @@ export interface RootRouteChildren {
   AssistantRoute: typeof AssistantRoute
   CalendarRoute: typeof CalendarRoute
   EmailRoute: typeof EmailRoute
+  FavoritesRoute: typeof FavoritesRoute
+  HelpRoute: typeof HelpRoute
+  HistoryRoute: typeof HistoryRoute
   MeetingsRoute: typeof MeetingsRoute
   PlannerRoute: typeof PlannerRoute
+  SettingsRoute: typeof SettingsRoute
   TasksRoute: typeof TasksRoute
 }
 
@@ -151,6 +203,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/meetings': {
       id: '/meetings'
       path: '/meetings'
@@ -163,6 +236,13 @@ declare module '@tanstack/react-router' {
       path: '/planner'
       fullPath: '/planner'
       preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks': {
@@ -180,8 +260,12 @@ const rootRouteChildren: RootRouteChildren = {
   AssistantRoute: AssistantRoute,
   CalendarRoute: CalendarRoute,
   EmailRoute: EmailRoute,
+  FavoritesRoute: FavoritesRoute,
+  HelpRoute: HelpRoute,
+  HistoryRoute: HistoryRoute,
   MeetingsRoute: MeetingsRoute,
   PlannerRoute: PlannerRoute,
+  SettingsRoute: SettingsRoute,
   TasksRoute: TasksRoute,
 }
 export const routeTree = rootRouteImport
