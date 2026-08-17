@@ -11,13 +11,13 @@ import {
 export type Task = {
   id: string;
   title: string;
-  notes?: string;
+  notes?: string | undefined;
   priority: "High" | "Medium" | "Low";
   status: "todo" | "doing" | "done";
-  deadline?: string;
-  duration?: string;
-  owner?: string;
-  source?: string;
+  deadline?: string | undefined;
+  duration?: string | undefined;
+  owner?: string | undefined;
+  source?: string | undefined;
   createdAt: string;
 };
 
@@ -27,17 +27,17 @@ export type SavedEmail = {
   body: string;
   tone: string;
   createdAt: string;
-  favorite?: boolean;
+  favorite?: boolean | undefined;
 };
 
 export type SavedMeeting = {
   id: string;
   title: string;
-  datetime?: string;
-  participants?: string;
+  datetime?: string | undefined;
+  participants?: string | undefined;
   summary: string;
   createdAt: string;
-  favorite?: boolean;
+  favorite?: boolean | undefined;
 };
 
 export type SavedPlan = {
@@ -45,7 +45,7 @@ export type SavedPlan = {
   title: string;
   plan: string;
   createdAt: string;
-  favorite?: boolean;
+  favorite?: boolean | undefined;
 };
 
 export type Activity = {
