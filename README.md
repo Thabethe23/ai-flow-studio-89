@@ -1,382 +1,156 @@
-# Aura AI
+# Aurora Work
 
-Prompt:
+A modern, professional AI productivity platform that combines three powerful tools into one unified workspace:
 
-Create a modern, professional, responsive AI Productivity Platform that combines three powerful tools into one unified application:
+- **Smart Email Generator** — tone-controlled professional emails in seconds
+- **Meeting Notes Summarizer** — transcripts into structured summaries with action items
+- **AI Task Planner & Scheduler** — goals turned into ordered tasks, deadlines, and calendar views
 
-Smart Email Generator
+Built with **TanStack Start**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
-Meeting Notes Summarizer
+![Aurora Work](https://ai-flow-studio-89.lovable.app/opengraph-image)
 
-AI Task Planner & Scheduler
+## Live Demo
 
-The application should have a clean, premium, professional UI suitable for students, professionals, businesses, and organizations. The design should be intuitive, accessible, mobile-friendly, and optimized for desktop, tablet, and smartphone screens.
+- **Published app:** [https://ai-flow-studio-89.lovable.app](https://ai-flow-studio-89.lovable.app)
+- **Preview build:** [https://id-preview--01509de5-75c5-49d0-afaa-096242b31ea2.lovable.app](https://id-preview--01509de5-75c5-49d0-afaa-096242b31ea2.lovable.app)
 
-1. Dashboard Layout
+## Features
 
-Create a central dashboard with:
+### Unified Dashboard
+A central hub with productivity stats, upcoming tasks, quick actions, and recent AI activity.
 
-A professional top navigation/header.
+### Smart Email Generator
+Draft emails with control over tone, purpose, length, and audience. Edit the AI output inline and save drafts to your workspace.
 
-Welcome message such as “Good morning! What would you like to accomplish today?”
+### Meeting Notes Summarizer
+Paste raw meeting notes and get a structured summary with key decisions, action items, and owners. Convert action items directly into tasks.
 
-Quick-action cards for:
+### AI Task Planner
+Describe a goal and receive a step-by-step plan with priorities, subtasks, and suggested deadlines. Send any plan straight to your task board.
 
-Generate Email
+### Calendar & Task Board
+View tasks in a monthly calendar, list, kanban, or weekly schedule. Track status from *todo* → *doing* → *done*.
 
-Summarize Meeting
+### AI Assistant
+A unified chat assistant that understands your workspace context (tasks, emails, meetings, plans) and helps you move information between tools.
 
-Create Tasks
+### Additional Pages
+- **History** — timeline of all AI-generated content
+- **Favorites** — starred emails, meetings, and plans
+- **Settings** — theme toggle, data clearing, and workspace preferences
+- **Help & Support** — FAQ and usage guidance
 
-Schedule Tasks
+## Design & UX
 
-Overview statistics:
+- Clean, premium SaaS aesthetic with deep navy surfaces and teal + amber accents
+- Fully responsive layout with a persistent desktop sidebar, mobile sheet navigation, and a bottom navigation bar on smartphones
+- Light and dark mode support
+- Semantic OKLCH color tokens and custom design utilities
+- Accessible components built on Radix primitives
 
-Emails Generated
+## Tech Stack
 
-Meetings Summarized
+| Layer | Technology |
+| --- | --- |
+| Framework | TanStack Start v1 |
+| UI | React 19, TypeScript |
+| Styling | Tailwind CSS v4 |
+| Components | shadcn/ui + Radix UI |
+| Icons | Lucide React |
+| State | React Context + localStorage |
+| AI | Lovable AI Gateway (Google Gemini 3.6 Flash) |
 
-Tasks Pending
+## Project Structure
 
-Tasks Completed
+```
+src/
+├── components/         # Shared UI components (shell, AI output, markdown, page, theme)
+├── lib/                # AI gateway, workspace store, utilities
+├── routes/             # TanStack Start file-based routes
+│   ├── index.tsx       # Dashboard
+│   ├── email.tsx       # Smart Email Generator
+│   ├── meetings.tsx    # Meeting Notes Summarizer
+│   ├── planner.tsx     # AI Task Planner
+│   ├── calendar.tsx    # Calendar & Schedule
+│   ├── tasks.tsx       # My Tasks
+│   ├── assistant.tsx   # Unified AI Assistant
+│   ├── history.tsx     # History
+│   ├── favorites.tsx   # Favorites
+│   ├── settings.tsx    # Settings
+│   └── help.tsx        # Help & Support
+├── styles.css          # Global theme tokens and design utilities
+└── __root.tsx          # Root layout
+```
 
-Upcoming tasks and meetings.
+## Getting Started
 
-Recent AI activity.
+### Prerequisites
 
-Productivity overview.
+- Node.js (latest LTS recommended)
+- `npm` or `bun`
 
-Notifications and reminders.
+### Install dependencies
 
-A prominent AI assistant/action button.
+```bash
+npm install
+```
 
-Use cards, clean spacing, subtle shadows, rounded corners, clear typography, and a modern professional visual hierarchy.
+### Run the development server
 
-2. Sidebar Navigation
-
-Create a collapsible responsive sidebar containing:
-
-Dashboard
-
-Smart Email Generator
-
-Meeting Notes
-
-AI Task Planner
-
-Calendar / Schedule
-
-My Tasks
-
-AI Assistant
-
-History
-
-Favorites
-
-Settings
-
-Help & Support
-
-On mobile devices, convert the sidebar into a hamburger menu or bottom navigation.
-
-3. Smart Email Generator
-
-Create an email-generation workspace with two clearly separated sections:
-
-Input Section
-
-Recipient/context field
-
-Email purpose
-
-Tone selector:
-
-Professional
-
-Friendly
-
-Formal
-
-Casual
-
-Persuasive
-
-Apologetic
-
-Desired length
-
-Key points/instructions
-
-Optional subject field
-
-“Generate Email” button
-
-AI Output Section
-Display the AI-generated email in a professional editable text area.
-
-Include actions:
-
-Copy
-
-Edit
-
-Regenerate
-
-Make Shorter
-
-Make More Professional
-
-Change Tone
-
-Generate Subject
-
-Save
-
-Export
-
-The AI should generate clear, grammatically correct, professional responses based only on the information supplied by the user.
-
-4. Meeting Notes Summarizer
-
-Create a meeting-notes input area where users can paste or upload meeting transcripts/notes.
-
-Provide:
-
-Meeting title
-
-Date and time
-
-Participants
-
-Meeting notes/transcript input
-
-“Summarize Meeting” button
-
-The AI output should organize information into:
-
-Executive Summary
-
-Key Discussion Points
-
-Important Decisions
-
-Action Items
-
-Assigned Responsibilities
-
-Deadlines
-
-Questions / Follow-ups
-
-Next Meeting Suggestions
-
-Allow users to copy, edit, download, save, and regenerate the summary.
-
-Clearly distinguish AI-generated content from information directly supplied by the user.
-
-5. AI Task Planner & Scheduler
-
-Create an intelligent task-planning workspace.
-
-Input Section
-Allow users to enter:
-
-Task description
-
-Goal
-
-Priority
-
-Deadline
-
-Estimated duration
-
-Preferred working hours
-
-Recurring task option
-
-Dependencies
-
-Additional instructions
-
-Add a “Create AI Plan” button.
-
-AI Output Section
-
-The AI should transform the user's goals into an organized action plan containing:
-
-Task title
-
-Description
-
-Priority
-
-Suggested deadline
-
-Estimated duration
-
-Subtasks
-
-Dependencies
-
-Recommended order
-
-Calendar schedule
-
-Reminders
-
-Provide views for:
-
-Today
-
-This Week
-
-Calendar
-
-List
-
-Kanban
-
-Allow users to drag and drop tasks, edit schedules, mark tasks complete, postpone tasks, and manually override AI recommendations.
-
-6. Unified AI Assistant
-
-Integrate all three tools so they work together.
-
-For example:
-
-Meeting Notes → Tasks → Calendar → Email
-
-After summarizing a meeting, the AI should be able to identify action items, convert them into tasks, suggest deadlines, place them on the user's schedule, and optionally generate follow-up emails.
-
-Create a unified “AI Assistant” that can understand the user's current workflow and help move information between the Email Generator, Meeting Summarizer, Task Planner, and Calendar.
-
-7. AI Generated Responses
-
-Every AI-generated response should:
-
-Be clearly labeled “AI Generated”.
-
-Be editable before use.
-
-Include Copy, Edit, Regenerate, and Save actions.
-
-Avoid presenting assumptions as facts.
-
-Clearly identify uncertainty when information is incomplete.
-
-Never automatically send emails or permanently modify schedules without user confirmation.
-
-8. Professional UI Design
-
-Use a premium SaaS-style interface with:
-
-Clean typography
-
-Modern cards
-
-Consistent spacing
-
-Professional icons
-
-Clear buttons
-
-Accessible contrast
-
-Subtle animations
-
-Loading indicators while AI is processing
-
-Empty states
-
-Error states
-
-Success notifications
-
-Confirmation dialogs
-
-Search functionality
-
-Dark mode and light mode
-
-Keep the interface uncluttered and make the primary actions immediately visible.
-
-9. Responsive Design
-
-The entire application must be fully responsive.
-
-Desktop:
-
-Persistent sidebar
-
-Multi-column dashboard
-
-Large input/output workspace
-
-Tablet:
-
-Collapsible sidebar
-
-Adaptive card layouts
-
-Optimized spacing
-
-Mobile:
-
-Hamburger navigation
-
-Single-column layouts
-
-Touch-friendly buttons
-
-Stacked input/output sections
-
-Mobile-friendly calendar and task views
-
-Sticky primary action buttons where appropriate
-
-10. Responsible AI Disclaimer
-
-Include a visible but non-intrusive disclaimer throughout the application:
-
-“Responsible AI Notice: AI-generated content may contain errors, omissions, or inaccurate information. Review and verify AI-generated emails, meeting summaries, tasks, schedules, and recommendations before relying on or sharing them. AI suggestions do not replace human judgment.”
-
-For sensitive information, display an additional reminder:
-
-“Do not enter confidential, sensitive, or personal information unless you are authorized to do so and the platform is approved for that information.”
-
-11. Overall User Experience
-
-The complete application should feel like a single integrated productivity system rather than three separate tools.
-
-Create smooth navigation between:
-
-Dashboard → Email → Meeting Notes → Tasks → Calendar → AI Assistant
-
-Use consistent components, styling, terminology, and interaction patterns across the entire platform.
-
-The final product should look like a polished, production-ready AI SaaS application with a professional dashboard, intuitive navigation, responsive design, editable AI outputs, strong user controls, and responsible AI messaging.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://ai-flow-studio-89.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/01509de5-75c5-49d0-afaa-096242b31ea2).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+The app will be available at [http://localhost:8080](http://localhost:8080).
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview the production build
+
+```bash
+npm run preview
+```
+
+## AI Configuration
+
+AI features are powered by the Lovable AI Gateway. The server-side handler reads the project API key at runtime:
+
+```bash
+LOVABLE_API_KEY=<your-lovable-api-key>
+```
+
+No client-side API key is exposed.
+
+## Responsible AI Notice
+
+Aurora Work uses AI to assist with drafting, summarizing, and planning. AI-generated content should be reviewed before use in professional or legal contexts. The app clearly labels AI output, allows inline editing, and displays a **Responsible AI Notice** on every page.
+
+## Deployment
+
+This project is configured for deployment through Lovable. Connect the project to GitHub for automatic two-way sync, or deploy the production build to any platform that supports Vite + Node-compatible edge runtimes.
+
+## Publishing to GitHub
+
+To publish this project to a GitHub repository:
+
+1. Open the project in the [Lovable editor](https://lovable.dev).
+2. Click the **Plus (+) menu** in the chat input (bottom-left corner).
+3. Choose **GitHub → Connect project**.
+4. Authorize the Lovable GitHub App when prompted.
+5. Select the GitHub account or organization where you want the repository.
+6. Click **Create Repository** to push the project code to GitHub.
+
+Once connected, every change made in Lovable will automatically push to GitHub, and changes pushed to GitHub will sync back into Lovable.
+
+## License
+
+This project is generated by Lovable and is provided as a starting point for your own application. Modify and use it according to your own license and requirements.
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev).
